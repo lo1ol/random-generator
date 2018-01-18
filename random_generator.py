@@ -1,6 +1,7 @@
 from time import time
 from scipy.stats import chi2, t
 from math import log2, ceil
+from psutil import cpu_freq
 
 a_hash = 63689
 b_hash = 378551
@@ -20,7 +21,7 @@ def hash(number):
 class MersenneTwisterGenerator:
     def __init__(self, seed=None):
         if seed == None:
-            self.prev = [hash(time()) for _ in range(624)]
+            self.prev = [hash(time()*cpu_freq()[0]) for _ in range(624)]
         else:
             global a_hash, b_hash, res_hash
             a_hash = 63689
