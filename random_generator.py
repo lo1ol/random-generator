@@ -108,7 +108,8 @@ def chi_sqr(sample, max):
 
     return level_trust(max-1, total)*100
 
-def uniformity(sammple, max):
+
+def uniformity(sample, max):
     n = len(sample)
     m1 = 1/2 * (max-1)
     s1 = ((max**2-1)/12)**0.5
